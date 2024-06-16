@@ -32,8 +32,6 @@ import { fileURLToPath } from 'url';
 // Setup __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-console.log("file name is ",__filename);
-console.log("directory name is ",__dirname);
 
 
 dotenv.config();
@@ -117,7 +115,6 @@ app.post('/api/upload-report', upload.single('file'), async (req, res) => {
 app.get('/api/download-report/:reportId', async (req, res) => {
   try {
     const { reportId } = req.params;
-    console.log("Report id here", reportId);
 
     // Fetch the report from the database
     const report = await Report.find({userId:reportId});
@@ -128,7 +125,7 @@ app.get('/api/download-report/:reportId', async (req, res) => {
     console.log("report aa gaya",report);
     // Get the file path from the report
     const filePath = report[0].filePath;
-
+    
     // Send the file to the client for download
     res.download(filePath, err => {
       if (err) {

@@ -103,7 +103,6 @@ export const getSingleDoctor = async (req, res) => {
 
 // getAll Doctor
 export const getAllDoctor = async (req, res) => {
-  console.log("Entering getAllDoctor function");
 
   try {
     const { query } = req.query;
@@ -173,14 +172,12 @@ export const getAdminProfile = async (req, res) => {
   try {
     // let user = null;
     const user = await Lab.findById(userId);
-    console.log("printing user ", user);
     
     if (!user) {
       res.status(404).json({ message: "User not found" });
     }
 
     const appointments = await LabBookingSchema.find({ doctor: userId }).populate('user');
-    console.log("Printing appointments", appointments);
 
     const { password, ...rest } = user._doc;
 
@@ -244,7 +241,6 @@ export const getAllLabs = async (req, res) => {
 // getSingle Lab
 export const getSingleLab = async (req, res) => {
   const id = req.params.id;
-  console.log("single lab id:", id);
 
   try {
     const lab = await Lab.findById(id)
