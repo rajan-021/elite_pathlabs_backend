@@ -1,7 +1,7 @@
 
-# Doctor Appointment App backend
+# Smart Health Appointment and Reporting System Backend
 
-This is the backend component of the Doctor/Lab Appointment App, responsible for handling authentication, appointment scheduling, and managing data for the application.
+This is the backend component of the Smart Health Appointment and Reporting System App, responsible for handling authentication, appointment scheduling, and managing data for the application.
 
 ## Table of Contents
 
